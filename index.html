@@ -76,6 +76,8 @@
   </div>
 
     </div><!-- /.container -->
+   
+   <!-- this creates the boxes where petitioners input their info into our database -->
     
 <form id="myForm" action="" method="POST" target="no-target">
   <input id="firstAndLastNameInput" placeholder="What is your first and last name?" name="firstAndLastName"> <br> <br>
@@ -84,10 +86,13 @@
   <button id="formSubmit" type="submit">Click here to sign the petition!</button>
 </form>
 
+<!-- This makes sure that the website doesn't ask if you want to answer again -->
+
 <iframe src"#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
 
     <script src ="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
+<!-- this jquery script allows for the information to be put into the database by calling on the ids of the input areas -->    
     <script>
   $('#myForm').on('submit', function(){
     
@@ -101,9 +106,13 @@
   var theirAge = encodeURIComponent($("#ageInput").val());
   var ageID = "i.desc.1008785767";
   
+//   this variable bellow creates the link with the information for the spreadsheet
+  
   var submitURL = (baseURL + firstAndLastNameID + "=" + theirFirstAndLastName + "&" + genderID + "=" + theirGender + "&" + ageID + "=" + theirAge + submitRef);
   
   console.log(submitURL);
+  
+//   this allows me to know that the user has inputed the information
   
   $(this)[0].action=submitURL;
   $('#firstAndLastNameInput').addClass('active').val("Thank you!");

@@ -69,13 +69,48 @@
       </div>
 
 
-        <button onclick="addAPetitioner()">Sign the petition!</button>
+        
 
 
       </div>
   </div>
 
     </div><!-- /.container -->
+    
+<form id="myForm" action="" method="POST" target="no-target">
+  <input id="firstAndLastNameInput" placeholder="What is your first and last name?" name="firstAndLastName"> <br> <br>
+  <input id="genderInput" placeholder="What gender do you indentify with?" name="gender"> <br> <br>
+  <input id="ageInput" placeholder="What is your age?" name="age"> <br> <br>
+  <button id="formSubmit" type="submit">Click here to sign the petition!</button>
+</form>
+
+<iframe src"#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
+
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <script>
+  $('#myForm').on('submit', function(){
+    
+  
+  var baseURL = "https://docs.google.com/a/greenwichschools.org/forms/d/1KqKlfB6z2MzQQQEht3tZZkyO0Xyz9GXpS4Z6uH9Evmo/viewform";
+  var submitRef = "&submit=Submit";
+  var theirFirstAndLastName = encodeURIComponent($("#firstAndLastNameInput").val());
+  var firstAndLastNameID = "i.desc.42255782";
+  var theirGender = encodeURIComponent($("#genderInput").val());
+  var genderID = "i.desc.1381115002";
+  var theirAge = encodeURIComponent($("#ageInput").val());
+  var ageID = "i.desc.1008785767";
+  
+  var submitURL = (baseURL + firstAndLastNameID + "=" + theirFirstAndLastName + "&" + genderID + "=" + theirGender + "&" + ageID + "=" + theirAge + submitRef);
+  
+  console.log(submitURL);
+  
+  $(this)[0].action=submitURL;
+  $('#firstAndLastNameInput').addClass('active').val("Thank you!");
+  
+  });
+  
+</script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

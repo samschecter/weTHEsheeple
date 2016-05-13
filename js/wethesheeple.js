@@ -6,6 +6,8 @@ function Petitioner(properties) {
   this.age = properties.age;
 }
 
+// this function is called when a new person is asked to sign the petition
+
 function addAPetitioner() {
   var add = confirm("Welcome to the minecraft sheep Petition! Would you like to sign?");
     if (add == true) {
@@ -15,6 +17,8 @@ function addAPetitioner() {
     alert("Thank you. End the brutality!");
   }
 }
+
+// each question is asked, and put into a temporary object
 
 function inputData() {
   var tempName = prompt("What is your first and last name?");
